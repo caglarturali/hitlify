@@ -35,6 +35,7 @@
   const addNewFontToList = () => {
     if (!newFont || newFont == "") return;
     fonts.update(f => [...f, newFont]);
+    fontFamily.set(newFont);
     newFont = "";
   };
 </script>
@@ -45,7 +46,7 @@
   }
 </style>
 
-<TileBox title="Options">
+<TileBox title="Customize">
 
   <ColorPicker label="Background color" bind:value={$backgroundColor} />
   <ColorPicker label="Font color" bind:value={$fontColor} />
