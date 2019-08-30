@@ -1,4 +1,5 @@
 <script>
+  import TileBox from "../components/TileBox.svelte";
   import Svg from "../components/Svg.svelte";
 </script>
 
@@ -10,11 +11,8 @@
   }
 </style>
 
-<div class="tile is-child box">
-  <p class="subtitle">Preview</p>
-  <hr />
-
+<TileBox title="Preview">
   <figure class="image svg-preview">
     <Svg />
   </figure>
-</div>
+</TileBox>

@@ -1,4 +1,5 @@
 <script>
+  import TileBox from "../components/TileBox.svelte";
   import ColorPicker from "../components/ColorPicker.svelte";
   import NumericInput from "../components/NumericInput.svelte";
 
@@ -36,9 +37,7 @@
   }
 </style>
 
-<div class="tile is-child box">
-  <p class="subtitle">Options</p>
-  <hr />
+<TileBox title="Options">
 
   <ColorPicker label="Background color" bind:value={$backgroundColor} />
   <ColorPicker label="Font color" bind:value={$fontColor} />
@@ -90,4 +89,4 @@
     </p>
 
   </div>
-</div>
+</TileBox>
