@@ -71,7 +71,7 @@
 
     <p class="control">
       <button
-        class="button has-icons has-icons-left"
+        class="button is-light has-icons has-icons-left"
         on:click={() => handleRandomizeClick()}>
         <span class="icon">
           <i class="fas fa-random" />
@@ -80,7 +80,7 @@
       </button>
     </p>
     <p class="control">
-      <button class="button has-icons has-icons-left">
+      <button class="button is-primary has-icons has-icons-left">
         <span class="icon">
           <i class="fas fa-space-shuttle" />
         </span>
