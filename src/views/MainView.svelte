@@ -3,6 +3,7 @@
 
   import OptionsPanel from "../containers/OptionsPanel.svelte";
   import SvgPreview from "../containers/SvgPreview.svelte";
+  import Testimonials from "../containers/Testimonials.svelte";
 </script>
 
 <style>
@@ -17,6 +18,11 @@
       </div>
       <div class="tile is-5 is-parent">
         <SvgPreview />
+      </div>
+    </div>
+    <div class="tile is-ancestor">
+      <div class="tile is-12 is-parent">
+        <Testimonials />
       </div>
     </div>
   </div>

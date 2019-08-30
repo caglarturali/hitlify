@@ -128,7 +128,7 @@
         <span class="icon">
           <i class="fas fa-space-shuttle" />
         </span>
-        <p>Generate</p>
+        <p>Create Counter</p>
       </button>
     </p>
 
