@@ -1,4 +1,6 @@
 <script>
+  import { randomNumber } from "../lib/utils.js";
+
   export let label;
   export let min = 1;
   export let max;
@@ -21,10 +23,17 @@
         <input class="input" type="range" bind:value {value} {min} {max} />
       </div>
     </div>
-    <div class="field">
+    <div class="field has-addons">
       <div class="control">
         <input class="input" type="number" bind:value {value} {min} {max} />
       </div>
+      <p class="control">
+        <button class="button" on:click={() => (value = randomNumber(max))}>
+          <span class="icon">
+            <i class="fas fa-random" />
+          </span>
+        </button>
+      </p>
     </div>
   </div>
 </div>

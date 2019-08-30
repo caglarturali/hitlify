@@ -2,6 +2,8 @@
   import ColorPicker from "../components/ColorPicker.svelte";
   import NumericInput from "../components/NumericInput.svelte";
 
+  import { randomNumber, randomColor } from "../lib/utils.js";
+
   import {
     width,
     height,
@@ -11,6 +13,15 @@
     fontColor,
     fontFamily
   } from "../stores.js";
+
+  const handleRandomizeClick = () => {
+    width.set(randomNumber(600));
+    height.set(randomNumber(600));
+    fontSize.set(randomNumber(50));
+    maxLength.set(randomNumber(13));
+    backgroundColor.set(randomColor());
+    fontColor.set(randomColor());
+  };
 
   const fonts = [
     "Arial, Helvetica, sans-serif",
@@ -56,16 +67,27 @@
   <NumericInput label="Width" max={600} bind:value={$width} />
   <NumericInput label="Height" max={600} bind:value={$height} />
 
-  <div class="field is-horizontal">
-    <div class="field-label">
-      <!-- Left empty for spacing -->
-    </div>
-    <div class="field-body">
-      <div class="field">
-        <div class="control">
-          <button class="button is-primary">Send message</button>
-        </div>
-      </div>
-    </div>
+  <hr />
+  <div class="field is-grouped is-grouped-centered">
+
+    <p class="control">
+      <button
+        class="button has-icons has-icons-left"
+        on:click={() => handleRandomizeClick()}>
+        <span class="icon">
+          <i class="fas fa-random" />
+        </span>
+        <p>Randomize All</p>
+      </button>
+    </p>
+    <p class="control">
+      <button class="button has-icons has-icons-left">
+        <span class="icon">
+          <i class="fas fa-space-shuttle" />
+        </span>
+        <p>Generate</p>
+      </button>
+    </p>
+
   </div>
 </div>

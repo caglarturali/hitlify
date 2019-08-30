@@ -1,4 +1,5 @@
 <script>
+  import { randomColor } from "../lib/utils.js";
   export let label, value;
 </script>
 
@@ -13,11 +14,20 @@
     <label class="label">{label}</label>
   </div>
   <div class="field-body">
-    <div class="field">
-      <p class="control">
+    <div class="field has-addons">
+      <p class="control is-expanded">
         <input class="input" type="color" bind:value {value} />
       </p>
+      <p class="control">
+        <button class="button" on:click={() => (value = randomColor())}>
+          <span class="icon">
+            <i class="fas fa-random" />
+          </span>
+        </button>
+
+      </p>
     </div>
+
     <div class="field" />
   </div>
 </div>
