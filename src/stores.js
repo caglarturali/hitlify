@@ -1,0 +1,11 @@
+import { writable } from 'svelte/store';
+
+export const width = writable(200);
+export const height = writable(50);
+export const fontSize = writable(36);
+export const maxLength = writable(7);
+export const backgroundColor = writable('#181818');
+export const fontColor = writable('#6ca45c');
+export const fontFamily = writable('Courier New, Courier, monospace');
+
+export const count = writable(1);
