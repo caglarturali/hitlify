@@ -1,4 +1,6 @@
 <script>
+  import FileSaver from "file-saver";
+
   import {
     width,
     height,
@@ -10,25 +12,21 @@
     count
   } from "../stores.js";
 
-  import FileSaver from "file-saver";
-
   import TileBox from "../components/TileBox.svelte";
-  import Svg from "../components/Svg.svelte";
-
   import { svgAsText } from "../lib/utils.js";
 
-  function downloadSvg() {
-    const svgString = svgAsText(
-      $width,
-      $height,
-      $fontSize,
-      $maxLength,
-      $backgroundColor,
-      $fontColor,
-      $fontFamily,
-      $count
-    );
+  $: svgString = svgAsText(
+    $width,
+    $height,
+    $fontSize,
+    $maxLength,
+    $backgroundColor,
+    $fontColor,
+    $fontFamily,
+    $count
+  );
 
+  function downloadSvg() {
     var blob = new Blob([svgString], { type: "image/svg+xml;charset=utf-8" });
     FileSaver.saveAs(blob, "counter.svg");
   }
@@ -45,7 +43,7 @@
 
 <TileBox title="Preview">
   <figure class="image svg-preview">
-    <Svg />
+    {@html svgString}
   </figure>
 
   <hr />

@@ -1,10 +1,4 @@
 <script>
-  import TileBox from "../components/TileBox.svelte";
-  import ColorPicker from "../components/ColorPicker.svelte";
-  import NumericInput from "../components/NumericInput.svelte";
-
-  import { randomNumber, randomColor } from "../lib/utils.js";
-
   import {
     width,
     height,
@@ -12,8 +6,20 @@
     maxLength,
     backgroundColor,
     fontColor,
-    fontFamily
+    fontFamily,
+    fonts
   } from "../stores.js";
+
+  import TileBox from "../components/TileBox.svelte";
+  import ColorPicker from "../components/ColorPicker.svelte";
+  import NumericInput from "../components/NumericInput.svelte";
+
+  import { randomNumber, randomColor } from "../lib/utils.js";
+
+  const selectRandomFont = () => {
+    const randomFontIndex = Math.floor(Math.random() * $fonts.length);
+    fontFamily.set($fonts[randomFontIndex]);
+  };
 
   const handleRandomizeClick = () => {
     width.set(randomNumber(600));
@@ -22,13 +28,15 @@
     maxLength.set(randomNumber(13));
     backgroundColor.set(randomColor());
     fontColor.set(randomColor());
+    selectRandomFont();
   };
 
-  const fonts = [
-    "Arial, Helvetica, sans-serif",
-    "Times New Roman, Times, serif",
-    "Courier New, Courier, monospace"
-  ];
+  let newFont;
+  const addNewFontToList = () => {
+    if (!newFont || newFont == "") return;
+    fonts.update(f => [...f, newFont]);
+    newFont = "";
+  };
 </script>
 
 <style>
@@ -47,16 +55,51 @@
       <label class="label">Font family</label>
     </div>
     <div class="field-body">
-      <div class="field is-narrow">
-        <div class="control">
-          <div class="select is-fullwidth">
+      <div class="field has-addons ">
+
+        <p class="control">
+          <span class="select is-fullwidth">
             <select bind:value={$fontFamily}>
-              {#each fonts as font}
+              {#each $fonts as font}
                 <option value={font}>{font}</option>
               {/each}
             </select>
-          </div>
+          </span>
+        </p>
+        <p class="control">
+          <button class="button" on:click={() => selectRandomFont()}>
+            <span class="icon">
+              <i class="fas fa-random" />
+            </span>
+          </button>
+        </p>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="field is-horizontal">
+    <div class="field-label" />
+    <div class="field-body">
+      <div class="field is-expanded">
+        <div class="field has-addons">
+          <p class="control is-expanded">
+            <input
+              class="input"
+              type="text"
+              bind:value={newFont}
+              placeholder="Add new font to the list" />
+          </p>
+          <p class="control">
+            <button class="button" on:click={() => addNewFontToList()}>
+              <i class="fas fa-plus" />
+            </button>
+          </p>
         </div>
+        <p class="help">
+          Make sure the new font is available on the page where the counter will
+          be placed
+        </p>
       </div>
     </div>
   </div>

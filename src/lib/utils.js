@@ -35,7 +35,7 @@ preserveAspectRatio="xMidYMid meet">
   y="50%"
   dominant-baseline="middle"
   text-anchor="middle"
-  style="fill: ${fontColor};font-family: ${fontFamily};font-size: ${fontSize}px;">
+  style="fill: ${fontColor}; font-family: ${fontFamily}; font-size: ${fontSize}px;">
   ${count.toString().padStart(maxLength, '0')}
 </text>
 </svg>`;
