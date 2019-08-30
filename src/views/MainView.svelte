@@ -1,7 +1,8 @@
 <script>
   import MainLayout from "../layouts/MainLayout.svelte";
-  import OptionsPanel from "../components/OptionsPanel.svelte";
-  import Svg from "../components/Svg.svelte";
+
+  import OptionsPanel from "../containers/OptionsPanel.svelte";
+  import SvgPreview from "../containers/SvgPreview.svelte";
 </script>
 
 <style>
@@ -15,7 +16,7 @@
         <OptionsPanel />
       </div>
       <div class="tile is-5 is-parent">
-        <Svg />
+        <SvgPreview />
       </div>
     </div>
   </div>

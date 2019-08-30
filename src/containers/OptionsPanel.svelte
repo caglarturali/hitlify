@@ -1,6 +1,6 @@
 <script>
-  import ColorPicker from "./ColorPicker.svelte";
-  import NumericInput from "./NumericInput.svelte";
+  import ColorPicker from "../components/ColorPicker.svelte";
+  import NumericInput from "../components/NumericInput.svelte";
 
   import {
     width,
