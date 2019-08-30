@@ -4,6 +4,7 @@
   import OptionsPanel from "../containers/OptionsPanel.svelte";
   import SvgPreview from "../containers/SvgPreview.svelte";
   import Testimonials from "../containers/Testimonials.svelte";
+  import Notification from "../components/Notification.svelte";
 </script>
 
 <style>
@@ -12,6 +13,12 @@
 
 <MainLayout>
   <div class="section">
+    <Notification>
+      Hit counters are
+      <strong>back</strong>
+      ! Create yours now for free.
+    </Notification>
+
     <div class="tile is-ancestor">
       <div class="tile is-7 is-parent">
         <OptionsPanel />

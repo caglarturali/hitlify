@@ -38,6 +38,7 @@
     align-items: center;
     justify-content: center;
     height: 70%; /* ? */
+    user-select: none;
   }
 </style>
 
