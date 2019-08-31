@@ -80,18 +80,18 @@
 
   $: numbersValid = !(
     isNaN($width) ||
+    $width > defaults.width.max ||
+    $width < 1 ||
     isNaN($height) ||
+    $height > defaults.height.max ||
+    $height < 1 ||
     isNaN($fontSize) ||
-    isNaN($maxLength)
+    $fontSize > defaults.fontSize.max ||
+    $fontSize < 1 ||
+    isNaN($maxLength) ||
+    $maxLength > defaults.maxLength.max ||
+    $maxLength < 1
   );
-
-  $: (() => {
-    if ($width > defaults.width.max) width.set(defaults.width.max);
-    if ($height > defaults.height.max) height.set(defaults.height.max);
-    if ($fontSize > defaults.fontSize.max) fontSize.set(defaults.fontSize.max);
-    if ($maxLength > defaults.maxLength.max)
-      maxLength.set(defaults.maxLength.max);
-  })();
 </script>
 
 <style>
