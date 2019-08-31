@@ -1,9 +1,9 @@
 <script>
-  import MainView from "./views/MainView.svelte";
+  import HomeView from "./views/HomeView.svelte";
 </script>
 
 <style>
 
 </style>
 
-<MainView />
+<HomeView />

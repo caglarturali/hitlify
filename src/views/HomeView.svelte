@@ -15,7 +15,7 @@
 <MainLayout>
   <div class="section">
     <Notification>
-      Hit counters are back! Create yours now for free.
+      Hit counters are back! Create yours now for free. 😊
     </Notification>
 
     <div class="tile is-ancestor">
