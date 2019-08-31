@@ -3,11 +3,15 @@
 </script>
 
 <style>
-
+  .bd-tw-button {
+    background-color: #55acee;
+    color: #fff;
+    border-color: transparent !important;
+  }
 </style>
 
 <nav
-  class="navbar has-shadow is-spaced"
+  class="navbar has-shadow is-spaced is-light"
   role="navigation"
   aria-label="main navigation">
   <div class="container">
@@ -36,11 +40,31 @@
 
       <div class="navbar-end">
         <div class="navbar-item">
-          <div class="buttons">
-            <a class="button is-primary">
-              <strong>Sign up</strong>
-            </a>
-            <a class="button is-light">Log in</a>
+          <div class="field is-grouped">
+            <p class="control">
+              <a
+                class="button bd-tw-button"
+                data-social-network="Twitter"
+                data-social-action="tweet"
+                data-social-target="https://hitlify.now.sh/"
+                target="_blank"
+                href="https://twitter.com/intent/tweet?text=Hitlify: Create
+                custom hit counters with
+                ease!;hashtags=hitlify,javascript,svelte,nodejs,codinggarden&amp;url=https://hitlify.now.sh/&amp;via=coding_garden">
+                <span class="icon">
+                  <i class="fab fa-twitter" />
+                </span>
+                <span>Tweet</span>
+              </a>
+            </p>
+            <p class="control">
+              <a class="button is-primary" href="">
+                <span class="icon">
+                  <i class="fas fa-download" />
+                </span>
+                <span>Download</span>
+              </a>
+            </p>
           </div>
         </div>
       </div>

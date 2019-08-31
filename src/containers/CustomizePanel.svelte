@@ -46,7 +46,7 @@
     fontFamily.set(defaults.fontFamily);
   };
 
-  const createCounter = async () => {
+  const generateCounter = async () => {
     isLoading.set(true);
 
     const res = await fetch(
@@ -125,12 +125,12 @@
         class="button is-primary has-icons has-icons-left"
         class:is-static={!$isAllowedToCreateNew}
         class:is-loading={$isLoading}
-        on:click={() => createCounter()}>
+        on:click={() => generateCounter()}>
         >
         <span class="icon">
           <i class="fas fa-space-shuttle" />
         </span>
-        <p>Create Counter</p>
+        <p>Generate Counter</p>
       </button>
     </p>
 
