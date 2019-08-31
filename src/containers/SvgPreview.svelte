@@ -67,18 +67,16 @@
 
   <hr />
   <div class="field is-grouped is-grouped-centered">
-
     <p class="control">
       <button
         class="button is-light has-icons has-icons-left"
         on:click={() => downloadSvg()}
-        title="You don't have to download the SVG to be able to use the counter!">
+        title="You don't need to download the SVG to be able to use the counter!">
         <span class="icon">
           <i class="fas fa-download" />
         </span>
         <p>Download SVG</p>
       </button>
     </p>
-
   </div>
 </TileBox>

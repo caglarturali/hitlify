@@ -1,4 +1,5 @@
 <script>
+  import { isLoading, isAllowedToCreateNew } from "../stores.js";
   import { randomColor } from "../lib/utils.js";
   export let label, value;
 </script>
@@ -16,10 +17,18 @@
   <div class="field-body">
     <div class="field has-addons">
       <p class="control is-expanded">
-        <input class="input" type="color" bind:value {value} />
+        <input
+          class="input"
+          type="color"
+          bind:value
+          {value}
+          disabled={!$isAllowedToCreateNew || $isLoading} />
       </p>
       <p class="control">
-        <button class="button" on:click={() => (value = randomColor())}>
+        <button
+          class="button"
+          on:click={() => (value = randomColor())}
+          class:is-static={!$isAllowedToCreateNew || $isLoading}>
           <span class="icon">
             <i class="fas fa-random" />
           </span>

@@ -1,4 +1,5 @@
 <script>
+  import { isLoading, isAllowedToCreateNew } from "../stores.js";
   import { randomNumber } from "../lib/utils.js";
 
   export let label;
@@ -20,15 +21,32 @@
   <div class="field-body">
     <div class="field">
       <div class="control">
-        <input class="input" type="range" bind:value {value} {min} {max} />
+        <input
+          class="input"
+          type="range"
+          bind:value
+          {value}
+          {min}
+          {max}
+          disabled={!$isAllowedToCreateNew || $isLoading} />
       </div>
     </div>
     <div class="field has-addons">
       <div class="control">
-        <input class="input" type="number" bind:value {value} {min} {max} />
+        <input
+          class="input"
+          type="number"
+          bind:value
+          {value}
+          {min}
+          {max}
+          disabled={!$isAllowedToCreateNew || $isLoading} />
       </div>
       <p class="control">
-        <button class="button" on:click={() => (value = randomNumber(max))}>
+        <button
+          class="button"
+          on:click={() => (value = randomNumber(max))}
+          class:is-static={!$isAllowedToCreateNew || $isLoading}>
           <span class="icon">
             <i class="fas fa-random" />
           </span>

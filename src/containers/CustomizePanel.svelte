@@ -7,7 +7,11 @@
     backgroundColor,
     fontColor,
     fontFamily,
-    fonts
+    fonts,
+    isLoading,
+    isAllowedToCreateNew,
+    showResultsPanel,
+    response
   } from "../stores.js";
 
   import TileBox from "../components/TileBox.svelte";
@@ -15,6 +19,7 @@
   import NumericInput from "../components/NumericInput.svelte";
 
   import { randomNumber, randomColor } from "../lib/utils.js";
+  import { API_BASE } from "../shared.js";
 
   const selectRandomFont = () => {
     const randomFontIndex = Math.floor(Math.random() * $fonts.length);
@@ -38,6 +43,38 @@
     fontFamily.set(newFont);
     newFont = "";
   };
+
+  const createCounter = async () => {
+    isLoading.set(true);
+
+    const res = await fetch(
+      `https://cors-anywhere.herokuapp.com/${API_BASE}/counters`,
+      {
+        method: "post",
+        body: JSON.stringify({
+          width: $width,
+          height: $height,
+          fontSize: $fontSize,
+          maxLength: $maxLength,
+          backgroundColor: $backgroundColor,
+          fontColor: $fontColor,
+          fontFamily: $fontFamily
+        }),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    );
+    const json = await res.json();
+
+    if (res.ok) {
+      isAllowedToCreateNew.set(false);
+      response.set(json);
+      showResultsPanel.set(true);
+    }
+
+    isLoading.set(false);
+  };
 </script>
 
 <style>
@@ -60,7 +97,9 @@
 
         <p class="control">
           <span class="select is-fullwidth">
-            <select bind:value={$fontFamily}>
+            <select
+              bind:value={$fontFamily}
+              disabled={!$isAllowedToCreateNew || $isLoading}>
               {#each $fonts as font}
                 <option value={font}>{font}</option>
               {/each}
@@ -68,7 +107,10 @@
           </span>
         </p>
         <p class="control">
-          <button class="button" on:click={() => selectRandomFont()}>
+          <button
+            class="button"
+            on:click={() => selectRandomFont()}
+            class:is-static={!$isAllowedToCreateNew || $isLoading}>
             <span class="icon">
               <i class="fas fa-random" />
             </span>
@@ -89,10 +131,14 @@
               class="input"
               type="text"
               bind:value={newFont}
-              placeholder="Add new font to the list" />
+              placeholder="Add new font to the list"
+              disabled={!$isAllowedToCreateNew || $isLoading} />
           </p>
           <p class="control">
-            <button class="button" on:click={() => addNewFontToList()}>
+            <button
+              class="button"
+              on:click={() => addNewFontToList()}
+              class:is-static={!$isAllowedToCreateNew || $isLoading}>
               <i class="fas fa-plus" />
             </button>
           </p>
@@ -116,6 +162,7 @@
     <p class="control">
       <button
         class="button is-light has-icons has-icons-left"
+        class:is-static={!$isAllowedToCreateNew || $isLoading}
         on:click={() => handleRandomizeClick()}>
         <span class="icon">
           <i class="fas fa-random" />
@@ -123,8 +170,14 @@
         <p>Randomize All</p>
       </button>
     </p>
+
     <p class="control">
-      <button class="button is-primary has-icons has-icons-left">
+      <button
+        class="button is-primary has-icons has-icons-left"
+        class:is-static={!$isAllowedToCreateNew}
+        class:is-loading={$isLoading}
+        on:click={() => createCounter()}>
+        >
         <span class="icon">
           <i class="fas fa-space-shuttle" />
         </span>

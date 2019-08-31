@@ -12,26 +12,14 @@
   aria-label="main navigation">
   <div class="container">
     <div class="navbar-brand">
-      <a class="navbar-item" href="https://bulma.io">
+      <a class="navbar-item" href="/">
         <img src="images/logo-type.png" height="32" alt="App logo" />
-      </a>
-
-      <a
-        role="button"
-        class="navbar-burger burger"
-        aria-label="menu"
-        aria-expanded="false"
-        data-target="navbarBasicExample"
-        href="#">
-        <span aria-hidden="true" />
-        <span aria-hidden="true" />
-        <span aria-hidden="true" />
       </a>
     </div>
 
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item">Home</a>
+        <a class="navbar-item" href="/">Home</a>
 
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">More</a>

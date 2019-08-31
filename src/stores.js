@@ -14,3 +14,8 @@ export const fonts = writable([
   'Courier New, Courier, monospace'
 ]);
 export const count = writable(1);
+
+export const isLoading = writable(false);
+export const isAllowedToCreateNew = writable(true);
+export const showResultsPanel = writable(false);
+export const response = writable({});

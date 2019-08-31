@@ -1,8 +1,9 @@
 <script>
   import MainLayout from "../layouts/MainLayout.svelte";
 
-  import OptionsPanel from "../containers/OptionsPanel.svelte";
+  import CustomizePanel from "../containers/CustomizePanel.svelte";
   import SvgPreview from "../containers/SvgPreview.svelte";
+  import ResultsPanel from "../containers/ResultsPanel.svelte";
   import Testimonials from "../containers/Testimonials.svelte";
   import Notification from "../components/Notification.svelte";
 </script>
@@ -14,19 +15,20 @@
 <MainLayout>
   <div class="section">
     <Notification>
-      Hit counters are
-      <strong>back</strong>
-      ! Create yours now for free.
+      Hit counters are back! Create yours now for free.
     </Notification>
 
     <div class="tile is-ancestor">
       <div class="tile is-7 is-parent">
-        <OptionsPanel />
+        <CustomizePanel />
       </div>
       <div class="tile is-5 is-parent">
         <SvgPreview />
       </div>
     </div>
+
+    <ResultsPanel />
+
     <div class="tile is-ancestor">
       <div class="tile is-12 is-parent">
         <Testimonials />
