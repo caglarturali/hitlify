@@ -55,6 +55,10 @@
     overflow-x: auto;
     padding: 1.25rem 1.5rem;
   }
+  pre,
+  .code-view {
+    border-radius: 4px;
+  }
 </style>
 
 {#if $showResultsPanel}
