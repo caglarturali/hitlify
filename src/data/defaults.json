@@ -1,10 +1,30 @@
 {
-  "width": 200,
-  "height": 50,
-  "fontSize": 36,
-  "maxLength": 7,
-  "backgroundColor": "#181818",
-  "fontColor": "#6ca45c",
-  "fontFamily": "Courier New, Courier, monospace",
-  "count": 1
+  "width": {
+    "value": 192,
+    "max": 600
+  },
+  "height": {
+    "value": 48,
+    "max": 600
+  },
+  "fontSize": {
+    "value": 32,
+    "max": 50
+  },
+  "maxLength": {
+    "value": 7,
+    "max": 13
+  },
+  "backgroundColor": {
+    "value": "#181818"
+  },
+  "fontColor": {
+    "value": "#6ca45c"
+  },
+  "fontFamily": {
+    "value": "Courier New, Courier, monospace"
+  },
+  "count": {
+    "value": 1
+  }
 }

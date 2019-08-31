@@ -37,13 +37,13 @@
   };
 
   const handleResetClick = () => {
-    width.set(defaults.width);
-    height.set(defaults.height);
-    fontSize.set(defaults.fontSize);
-    maxLength.set(defaults.maxLength);
-    backgroundColor.set(defaults.backgroundColor);
-    fontColor.set(defaults.fontColor);
-    fontFamily.set(defaults.fontFamily);
+    width.set(defaults.width.value);
+    height.set(defaults.height.value);
+    fontSize.set(defaults.fontSize.value);
+    maxLength.set(defaults.maxLength.value);
+    backgroundColor.set(defaults.backgroundColor.value);
+    fontColor.set(defaults.fontColor.value);
+    fontFamily.set(defaults.fontFamily.value);
   };
 
   const handleGenerateCounter = async () => {
@@ -84,6 +84,14 @@
     isNaN($fontSize) ||
     isNaN($maxLength)
   );
+
+  $: (() => {
+    if ($width > defaults.width.max) width.set(defaults.width.max);
+    if ($height > defaults.height.max) height.set(defaults.height.max);
+    if ($fontSize > defaults.fontSize.max) fontSize.set(defaults.fontSize.max);
+    if ($maxLength > defaults.maxLength.max)
+      maxLength.set(defaults.maxLength.max);
+  })();
 </script>
 
 <style>
@@ -95,10 +103,16 @@
   <ColorPicker label="Background color" bind:value={$backgroundColor} />
   <ColorPicker label="Font color" bind:value={$fontColor} />
   <FontSelector label="Font family" />
-  <NumericInput label="Font size" max={50} bind:value={$fontSize} />
-  <NumericInput label="Max digits" max={13} bind:value={$maxLength} />
-  <NumericInput label="Width" max={600} bind:value={$width} />
-  <NumericInput label="Height" max={600} bind:value={$height} />
+  <NumericInput
+    label="Font size"
+    max={defaults.fontSize.max}
+    bind:value={$fontSize} />
+  <NumericInput
+    label="Max digits"
+    max={defaults.maxLength.max}
+    bind:value={$maxLength} />
+  <NumericInput label="Width" max={defaults.width.max} bind:value={$width} />
+  <NumericInput label="Height" max={defaults.height.max} bind:value={$height} />
 
   <hr />
   <div class="field is-grouped is-grouped-centered">
