@@ -4,13 +4,11 @@
 </script>
 
 <style>
-  .main-content {
-    min-height: 85vh;
-  }
+
 </style>
 
 <Header />
-<div class="container main-content">
+<div class="container">
   <slot />
 </div>
 <Footer />

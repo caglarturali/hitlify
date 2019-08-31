@@ -38,12 +38,12 @@
         </a>
 
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
+          <span class="navbar-link">
             <span class="icon has-text-success">
               <i class="fab fa-pagelines" />
             </span>
             <span>Coding Garden</span>
-          </a>
+          </span>
 
           <div class="navbar-dropdown">
             <a

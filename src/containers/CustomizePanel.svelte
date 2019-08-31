@@ -31,7 +31,7 @@
     backgroundColor.set(randomColor());
     fontColor.set(randomColor());
 
-    // Code duplication - rafactor
+    // Code duplication - refactor
     const randomFontIndex = Math.floor(Math.random() * $fonts.length);
     fontFamily.set($fonts[randomFontIndex]);
   };
@@ -46,7 +46,7 @@
     fontFamily.set(defaults.fontFamily);
   };
 
-  const generateCounter = async () => {
+  const handleGenerateCounter = async () => {
     isLoading.set(true);
 
     const res = await fetch(
@@ -125,7 +125,7 @@
         class="button is-primary has-icons has-icons-left"
         class:is-static={!$isAllowedToCreateNew}
         class:is-loading={$isLoading}
-        on:click={() => generateCounter()}>
+        on:click={() => handleGenerateCounter()}>
         >
         <span class="icon">
           <i class="fas fa-space-shuttle" />
