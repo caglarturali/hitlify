@@ -1,4 +1,6 @@
 <script>
+  import GitHubButton from "../../components/GitHubButton.svelte";
+
   let tweetUrl =
     "https://twitter.com/intent/tweet?text=Hitlify: Create custom hit counters with ease!;hashtags=hitlify,javascript,svelte,nodejs,codinggarden&amp;url=https://hitlify.now.sh/&amp;via=coding_garden";
 </script>
@@ -69,6 +71,17 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="field is-grouped">
+
+            <GitHubButton
+              user="caglarturali"
+              repo="hitlify"
+              title="Front-End Repo" />
+
+            <GitHubButton
+              user="CodingGarden"
+              repo="hit-counter"
+              title="Back-End Repo" />
+
             <p class="control">
               <a
                 class="button bd-tw-button"
@@ -76,21 +89,15 @@
                 data-social-action="tweet"
                 data-social-target="https://hitlify.now.sh/"
                 target="_blank"
-                href={tweetUrl}>
+                href={tweetUrl}
+                title="Spread the word..">
                 <span class="icon">
                   <i class="fab fa-twitter" />
                 </span>
                 <span>Tweet</span>
               </a>
             </p>
-            <p class="control">
-              <a class="button is-primary" href="">
-                <span class="icon">
-                  <i class="fas fa-download" />
-                </span>
-                <span>Download</span>
-              </a>
-            </p>
+
           </div>
         </div>
       </div>
