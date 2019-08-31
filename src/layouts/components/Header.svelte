@@ -1,5 +1,6 @@
 <script>
-
+  let tweetUrl =
+    "https://twitter.com/intent/tweet?text=Hitlify: Create custom hit counters with ease!;hashtags=hitlify,javascript,svelte,nodejs,codinggarden&amp;url=https://hitlify.now.sh/&amp;via=coding_garden";
 </script>
 
 <style>
@@ -7,6 +8,10 @@
     background-color: #55acee;
     color: #fff;
     border-color: transparent !important;
+  }
+  .bd-tw-button:hover {
+    background-color: #00aae8;
+    color: #fff;
   }
 </style>
 
@@ -23,17 +28,40 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item" href="/">Home</a>
+        <a class="navbar-item" href="/">
+          <span class="icon has-text-primary">
+            <i class="fas fa-home" />
+          </span>
+          <span>Home</span>
+        </a>
 
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">More</a>
+          <a class="navbar-link">
+            <span class="icon has-text-success">
+              <i class="fab fa-pagelines" />
+            </span>
+            <span>Coding Garden</span>
+          </a>
 
           <div class="navbar-dropdown">
-            <a class="navbar-item">About</a>
-            <a class="navbar-item">Jobs</a>
-            <a class="navbar-item">Contact</a>
-            <hr class="navbar-divider" />
-            <a class="navbar-item">Report an issue</a>
+            <a
+              class="navbar-item"
+              href="https://coding.garden/"
+              target="_blank">
+              <span class="icon has-text-primary">
+                <i class="fas fa-bookmark" />
+              </span>
+              <span>Website</span>
+            </a>
+            <a
+              class="navbar-item"
+              href="https://www.youtube.com/c/CodingGardenWithCJ"
+              target="_blank">
+              <span class="icon has-text-danger">
+                <i class="fab fa-youtube" />
+              </span>
+              <span>YouTube</span>
+            </a>
           </div>
         </div>
       </div>
@@ -48,9 +76,7 @@
                 data-social-action="tweet"
                 data-social-target="https://hitlify.now.sh/"
                 target="_blank"
-                href="https://twitter.com/intent/tweet?text=Hitlify: Create
-                custom hit counters with
-                ease!;hashtags=hitlify,javascript,svelte,nodejs,codinggarden&amp;url=https://hitlify.now.sh/&amp;via=coding_garden">
+                href={tweetUrl}>
                 <span class="icon">
                   <i class="fab fa-twitter" />
                 </span>
