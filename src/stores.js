@@ -1,19 +1,20 @@
 import { writable } from 'svelte/store';
+import defaults from './data/defaults.json';
 
-export const width = writable(200);
-export const height = writable(50);
-export const fontSize = writable(36);
-export const maxLength = writable(7);
-export const backgroundColor = writable('#181818');
-export const fontColor = writable('#6ca45c');
-export const fontFamily = writable('Courier New, Courier, monospace');
+export const width = writable(defaults.width);
+export const height = writable(defaults.height);
+export const fontSize = writable(defaults.fontSize);
+export const maxLength = writable(defaults.maxLength);
+export const backgroundColor = writable(defaults.backgroundColor);
+export const fontColor = writable(defaults.fontColor);
+export const fontFamily = writable(defaults.fontFamily);
 
 export const fonts = writable([
   'Arial, Helvetica, sans-serif',
   'Times New Roman, Times, serif',
   'Courier New, Courier, monospace'
 ]);
-export const count = writable(1);
+export const count = writable(defaults.count);
 
 export const isLoading = writable(false);
 export const isAllowedToCreateNew = writable(true);

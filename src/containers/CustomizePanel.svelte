@@ -13,6 +13,7 @@
     showResultsPanel,
     response
   } from "../stores.js";
+  import defaults from "../data/defaults.json";
 
   import TileBox from "../components/TileBox.svelte";
   import ColorPicker from "../components/ColorPicker.svelte";
@@ -33,6 +34,16 @@
     // Code duplication - rafactor
     const randomFontIndex = Math.floor(Math.random() * $fonts.length);
     fontFamily.set($fonts[randomFontIndex]);
+  };
+
+  const handleResetClick = () => {
+    width.set(defaults.width);
+    height.set(defaults.height);
+    fontSize.set(defaults.fontSize);
+    maxLength.set(defaults.maxLength);
+    backgroundColor.set(defaults.backgroundColor);
+    fontColor.set(defaults.fontColor);
+    fontFamily.set(defaults.fontFamily);
   };
 
   const createCounter = async () => {
@@ -94,6 +105,18 @@
           <i class="fas fa-random" />
         </span>
         <p>Randomize All</p>
+      </button>
+    </p>
+
+    <p class="control">
+      <button
+        class="button is-light has-icons has-icons-left"
+        class:is-static={!$isAllowedToCreateNew || $isLoading}
+        on:click={() => handleResetClick()}>
+        <span class="icon">
+          <i class="fas fa-redo" />
+        </span>
+        <p>Reset</p>
       </button>
     </p>
 

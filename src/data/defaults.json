@@ -1,0 +1,10 @@
+{
+  "width": 200,
+  "height": 50,
+  "fontSize": 36,
+  "maxLength": 7,
+  "backgroundColor": "#181818",
+  "fontColor": "#6ca45c",
+  "fontFamily": "Courier New, Courier, monospace",
+  "count": 1
+}
