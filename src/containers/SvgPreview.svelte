@@ -33,19 +33,37 @@
 </script>
 
 <style>
-  .svg-preview {
+  .preview-container {
+    height: 70%; /* ? */
+  }
+
+  .centered-flex {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 70%; /* ? */
     user-select: none;
+  }
+
+  .svg-preview {
+    transition: all 500ms ease;
+    overflow: hidden;
   }
 </style>
 
 <TileBox title="Preview">
-  <figure class="image svg-preview">
-    {@html svgString}
-  </figure>
+
+  <!-- {@html svgString} - Use fake svg preview for easy animations -->
+  <div class="preview-container centered-flex">
+    <div
+      class="svg-preview centered-flex"
+      style="width: {$width}px; height: {$height}px; background-color: {$backgroundColor}">
+      <p
+        class="svg-preview"
+        style="color: {$fontColor}; font-family: {$fontFamily}; font-size: {$fontSize}px;">
+        {$count.toString().padStart($maxLength, '0')}
+      </p>
+    </div>
+  </div>
 
   <hr />
   <div class="field is-grouped is-grouped-centered">
@@ -53,7 +71,8 @@
     <p class="control">
       <button
         class="button is-light has-icons has-icons-left"
-        on:click={() => downloadSvg()}>
+        on:click={() => downloadSvg()}
+        title="You don't have to download the SVG to be able to use the counter!">
         <span class="icon">
           <i class="fas fa-download" />
         </span>
