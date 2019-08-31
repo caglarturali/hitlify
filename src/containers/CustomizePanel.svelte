@@ -77,6 +77,13 @@
 
     isLoading.set(false);
   };
+
+  $: numbersValid = !(
+    isNaN($width) ||
+    isNaN($height) ||
+    isNaN($fontSize) ||
+    isNaN($maxLength)
+  );
 </script>
 
 <style>
@@ -123,7 +130,7 @@
     <p class="control">
       <button
         class="button is-primary has-icons has-icons-left"
-        class:is-static={!$isAllowedToCreateNew}
+        class:is-static={!$isAllowedToCreateNew || !numbersValid}
         class:is-loading={$isLoading}
         on:click={() => handleGenerateCounter()}>
         >

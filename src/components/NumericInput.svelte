@@ -25,6 +25,7 @@
           class="input"
           type="range"
           bind:value
+          required
           {value}
           {min}
           {max}
@@ -37,6 +38,7 @@
           class="input"
           type="number"
           bind:value
+          required
           {value}
           {min}
           {max}
