@@ -3,28 +3,30 @@
 </script>
 
 <style>
-.footer {
-  padding: 2rem;
-}
+  .footer {
+    padding: 2rem;
+  }
 </style>
 
 <footer class="footer">
-
-  <nav class="level">
-    <p class="level-item has-text-centered">
-      <a class="link is-info">Home</a>
-    </p>
-    <p class="level-item has-text-centered">
-      <a class="link is-info">Menu</a>
-    </p>
-    <p class="level-item has-text-centered">
-      <img src="images/logo-type.png" alt="" style="height: 30px;" />
-    </p>
-    <p class="level-item has-text-centered">
-      <a class="link is-info">Reservations</a>
-    </p>
-    <p class="level-item has-text-centered">
-      <a class="link is-info">Contact</a>
-    </p>
+  <nav class="level is-mobile">
+    <div class="level-item has-text-centered" />
+    <div class="level-item has-text-centered is-narrow">
+      <div>
+        <p class="heading">Total</p>
+        <img
+          src="https://ht-ct.now.sh/counters/4d169295-4c2c-4197-a1b3-a2904d0c1c75"
+          alt="Total visitor count" />
+      </div>
+    </div>
+    <div class="level-item has-text-centered is-narrow">
+      <div>
+        <p class="heading">Unique</p>
+        <img
+          src="https://ht-ct.now.sh/counters/4d169295-4c2c-4197-a1b3-a2904d0c1c75?unique=true"
+          alt="Unique visitor count" />
+      </div>
+    </div>
+    <div class="level-item has-text-centered" />
   </nav>
 </footer>
