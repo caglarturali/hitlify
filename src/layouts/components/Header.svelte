@@ -16,7 +16,7 @@
 </style>
 
 <nav
-  class="navbar has-shadow is-spaced is-light"
+  class="navbar has-shadow is-spaced"
   role="navigation"
   aria-label="main navigation">
   <div class="container">
