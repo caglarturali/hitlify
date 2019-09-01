@@ -75,12 +75,12 @@
             <GitHubButton
               user="caglarturali"
               repo="hitlify"
-              title="Front-End Repo" />
+              title="Frontend Repo" />
 
             <GitHubButton
               user="CodingGarden"
               repo="hit-counter"
-              title="Back-End Repo" />
+              title="Backend Repo" />
 
             <p class="control">
               <a

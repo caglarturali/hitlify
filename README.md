@@ -3,11 +3,11 @@
 
 ## What is this?
 
-This is a complementary project to [visitor hit counter API](https://github.com/CodingGarden/hit-counter), from the YouTube channel [Coding Garden with CJ](https://www.youtube.com/c/CodingGardenWithCJ). You can watch the entire back-end creation process [here](https://www.youtube.com/watch?v=dZ0YCood9Xw). Don't forget to subscribe. :)
+This is a complementary project to [visitor hit counter API](https://github.com/CodingGarden/hit-counter), from the YouTube channel [Coding Garden with CJ](https://www.youtube.com/c/CodingGardenWithCJ). You can watch the entire backend creation process [here](https://www.youtube.com/watch?v=dZ0YCood9Xw). Don't forget to subscribe. :)
 
 ### Details
 
-The project uses [Svelte](https://svelte.dev/) as the front-end technology. If you're not sure what it is, go check out, you will not regret it.
+The project uses [Svelte](https://svelte.dev/) as the frontend technology. If you're not sure what it is, go check out, you will not regret it.
 
 ### Running a local copy
 
