@@ -8,7 +8,7 @@
   let stars = 0;
   let storageKey = `${user}-${repo}-json`;
   let lastCheckKey = "last_check";
-  let expireIn = 5 * 60 * 1000;
+  let expireIn = 15 * 60 * 1000;
 
   onMount(async () => {
     if (!fetchLocalStorage()) {
