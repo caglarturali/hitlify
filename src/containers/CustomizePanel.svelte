@@ -51,30 +51,41 @@
   const handleGenerateCounter = async () => {
     isLoading.set(true);
 
-    const res = await fetch(
-      `https://cors-anywhere.herokuapp.com/${API_BASE}/counters`,
-      {
-        method: "post",
-        body: JSON.stringify({
-          width: $width,
-          height: $height,
-          fontSize: $fontSize,
-          maxLength: $maxLength,
-          backgroundColor: $backgroundColor,
-          fontColor: $fontColor,
-          fontFamily: $fontFamily
-        }),
-        headers: {
-          "Content-Type": "application/json"
+    try {
+      const res = await fetch(
+        `https://cors-anywhere.herokuapp.com/${API_BASE}/counters`,
+        {
+          method: "post",
+          body: JSON.stringify({
+            width: $width,
+            height: $height,
+            fontSize: $fontSize,
+            maxLength: $maxLength,
+            backgroundColor: $backgroundColor,
+            fontColor: $fontColor,
+            fontFamily: $fontFamily
+          }),
+          headers: {
+            "Content-Type": "application/json"
+          }
         }
-      }
-    );
-    const json = await res.json();
+      );
+      const json = await res.json();
 
-    if (res.ok) {
-      isAllowedToCreateNew.set(false);
-      response.set(json);
-      showResultsPanel.set(true);
+      if (res.ok) {
+        isAllowedToCreateNew.set(false);
+        response.set(json);
+        showResultsPanel.set(true);
+
+        // Scroll to bottom
+        window.scrollTo({
+          behavior: "smooth",
+          top: document.body.scrollHeight,
+          left: 0
+        });
+      }
+    } catch (error) {
+      console.log(error);
     }
 
     isLoading.set(false);
