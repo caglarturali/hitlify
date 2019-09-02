@@ -27,7 +27,7 @@
     width.set(randomNumber(400, 96));
     height.set(randomNumber($width / 2, 24));
     const fontMax =
-      $height <= defaults.fontSize.max ? $height - 4 : defaults.fontSize.max;
+      $height < defaults.fontSize.max ? $height : defaults.fontSize.max;
     fontSize.set(randomNumber(fontMax, 16));
     maxLength.set(randomNumber(10, 3));
     backgroundColor.set(randomColor());
