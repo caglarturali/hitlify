@@ -3,6 +3,8 @@
 
   let tweetUrl =
     "https://twitter.com/intent/tweet?text=Hitlify: Create custom hit counters with ease!;hashtags=hitlify,javascript,svelte,nodejs,codinggarden&amp;url=https://hitlify.now.sh/&amp;via=coding_garden";
+
+  let showMenu = false;
 </script>
 
 <style>
@@ -26,9 +28,18 @@
       <a class="navbar-item" href="/">
         <img src="images/logo-type.png" height="32" alt="App logo" />
       </a>
+
+      <div
+        class="navbar-burger burger"
+        class:is-active={showMenu}
+        on:click={() => (showMenu = !showMenu)}>
+        <span />
+        <span />
+        <span />
+      </div>
     </div>
 
-    <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-menu" class:is-active={showMenu}>
       <div class="navbar-start">
         <a class="navbar-item" href="/">
           <span class="icon has-text-primary">
