@@ -37,25 +37,39 @@
 </script>
 
 <style>
-  .badge {
-    background-color: #555;
-    border-radius: 2px;
-    color: white;
-    font-size: 0.8rem;
-    padding: 0 0;
-    margin-left: 0.5em;
+  .stargazers,
+  .stargazers .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.875em;
+  }
+  .stargazers .icon {
+    font-size: 0.75em;
+  }
+
+  .field.has-addons {
+    margin-right: 10px;
   }
 </style>
 
-<p class="control">
-  <a class="button" href={repoUrl} target="_blank" {title}>
-    <span class="icon">
-      <i class="fab fa-github-alt" />
-    </span>
-    <span>{repo}</span>
-    <span class="badge">
-      {stars}
-      <i class="fas fa-star" />
-    </span>
-  </a>
-</p>
+<div class="field has-addons" {title}>
+  <p class="control">
+    <a class="button" href={repoUrl} target="_blank">
+      <span class="icon">
+        <i class="fab fa-github-alt" />
+      </span>
+      <span>{repo}</span>
+    </a>
+  </p>
+  <p class="control">
+    <button class="button">
+      <div class="stargazers">
+        <span class="icon">
+          <i class="fas fa-star" />
+        </span>
+        <span>{stars}</span>
+      </div>
+    </button>
+  </p>
+</div>
