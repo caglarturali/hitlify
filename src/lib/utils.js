@@ -40,3 +40,27 @@ preserveAspectRatio="xMidYMid meet">
   ${count.toString().padStart(maxLength, '0')}
 </text>
 </svg>`;
+
+export const humanVerification = (maxNum = 10) => {
+  let question, answer;
+
+  const operations = ['+', '-'];
+  const selectedOp = operations[Math.floor(Math.random() * operations.length)];
+  let number1 = Math.floor(Math.random() * maxNum) + 1;
+  let number2 = Math.floor(Math.random() * maxNum) + 1;
+
+  switch (selectedOp) {
+    case '+':
+      question = `${number1} + ${number2}`;
+      answer = number1 + number2;
+      break;
+    case '-':
+      if (number2 > number1) {
+        [number1, number2] = [number2, number1];
+      }
+      question = `${number1} - ${number2}`;
+      answer = number1 - number2;
+  }
+
+  return { question, answer };
+};

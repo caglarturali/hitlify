@@ -20,7 +20,11 @@
   import NumericInput from "../components/NumericInput.svelte";
   import FontSelector from "../components/FontSelector.svelte";
 
-  import { randomNumber, randomColor } from "../lib/utils.js";
+  import {
+    randomNumber,
+    randomColor,
+    humanVerification
+  } from "../lib/utils.js";
   import { API_BASE } from "../shared.js";
 
   const handleRandomizeAllClick = () => {
@@ -49,6 +53,44 @@
   };
 
   const handleGenerateCounter = async () => {
+    initiateProcess();
+  };
+
+  let processInitiated = false;
+  let verify = {
+    question: "",
+    answer: 0,
+    userInput: null
+  };
+  const initiateProcess = () => {
+    const { question, answer } = humanVerification();
+    verify.question = question;
+    verify.answer = answer;
+    processInitiated = true;
+  };
+
+  const clearProcess = () => {
+    verify = {
+      question: "",
+      answer: 0,
+      userInput: null
+    };
+    processInitiated = false;
+  };
+
+  const continueProcess = async () => {
+    if (verify.answer === verify.userInput) {
+      clearProcess();
+      await makeRequest();
+    }
+  };
+
+  const handleOnSubmit = e => {
+    e.preventDefault();
+    continueProcess();
+  };
+
+  const makeRequest = async () => {
     isLoading.set(true);
 
     try {
@@ -130,43 +172,82 @@
   <hr />
   <div class="field is-grouped is-grouped-centered">
 
-    <p class="control">
-      <button
-        class="button is-light has-icons has-icons-left"
-        class:is-static={!$isAllowedToCreateNew || $isLoading}
-        on:click={() => handleRandomizeAllClick()}>
-        <span class="icon">
-          <i class="fas fa-random" />
-        </span>
-        <p>Randomize All</p>
-      </button>
-    </p>
+    {#if !processInitiated}
+      <p class="control">
+        <button
+          class="button is-light has-icons has-icons-left"
+          class:is-static={!$isAllowedToCreateNew || $isLoading}
+          on:click={() => handleRandomizeAllClick()}>
+          <span class="icon">
+            <i class="fas fa-random" />
+          </span>
+          <p>Randomize All</p>
+        </button>
+      </p>
 
-    <p class="control">
-      <button
-        class="button is-light has-icons has-icons-left"
-        class:is-static={!$isAllowedToCreateNew || $isLoading}
-        on:click={() => handleResetClick()}>
-        <span class="icon">
-          <i class="fas fa-redo" />
-        </span>
-        <p>Reset</p>
-      </button>
-    </p>
+      <p class="control">
+        <button
+          class="button is-light has-icons has-icons-left"
+          class:is-static={!$isAllowedToCreateNew || $isLoading}
+          on:click={() => handleResetClick()}>
+          <span class="icon">
+            <i class="fas fa-redo" />
+          </span>
+          <p>Reset</p>
+        </button>
+      </p>
 
-    <p class="control">
-      <button
-        class="button is-primary has-icons has-icons-left"
-        class:is-static={!$isAllowedToCreateNew || !numbersValid}
-        class:is-loading={$isLoading}
-        on:click={() => handleGenerateCounter()}>
-        >
-        <span class="icon">
-          <i class="fas fa-space-shuttle" />
-        </span>
-        <p>Generate Counter</p>
-      </button>
-    </p>
+      <p class="control">
+        <button
+          class="button is-primary has-icons has-icons-left"
+          class:is-static={!$isAllowedToCreateNew || !numbersValid}
+          class:is-loading={$isLoading}
+          on:click={() => handleGenerateCounter()}>
+          <span class="icon">
+            <i class="fas fa-rocket" />
+          </span>
+          <p>Generate Counter</p>
+        </button>
+      </p>
+    {:else}
+      <form on:submit={handleOnSubmit}>
+        <div class="field has-addons">
+          <p class="control">
+            <span class="button is-static">{verify.question} =</span>
+          </p>
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              on:input={e => {
+                const input = e.target.value;
+                verify.userInput = input ? Number(input) : null;
+              }}
+              placeholder="?" />
+          </div>
+          <p class="control">
+            <button
+              class="button is-primary has-icons has-icons-left"
+              class:is-static={!(verify.userInput >= 0 && verify.userInput === verify.answer)}
+              on:click={() => continueProcess()}>
+              <span class="icon">
+                <i class="fas fa-rocket" />
+              </span>
+              <p>GO!</p>
+            </button>
+          </p>
+          <p class="control">
+            <button
+              class="button is-danger has-icons has-icons-left"
+              on:click={() => clearProcess()}>
+              <span class="icon">
+                <i class="fas fa-times" />
+              </span>
+            </button>
+          </p>
+        </div>
+      </form>
+    {/if}
 
   </div>
 </TileBox>
