@@ -63,13 +63,13 @@
     </a>
   </p>
   <p class="control">
-    <button class="button">
+    <a class="button" href={repoUrl} target="_blank">
       <div class="stargazers">
         <span class="icon">
           <i class="fas fa-star" />
         </span>
         <span>{stars}</span>
       </div>
-    </button>
+    </a>
   </p>
 </div>
