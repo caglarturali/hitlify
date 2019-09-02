@@ -1,4 +1,5 @@
 <script>
+  import { fade } from "svelte/transition";
   import {
     width,
     height,
@@ -170,9 +171,12 @@
   <NumericInput label="Height" max={defaults.height.max} bind:value={$height} />
 
   <hr />
-  <div class="field is-grouped is-grouped-centered">
 
-    {#if !processInitiated}
+  {#if !processInitiated}
+    <div
+      class="field is-grouped is-grouped-centered"
+      in:fade
+      out:fade={{ duration: 0 }}>
       <p class="control">
         <button
           class="button is-light has-icons has-icons-left"
@@ -209,8 +213,10 @@
           <p>Generate Counter</p>
         </button>
       </p>
-    {:else}
-      <form on:submit={handleOnSubmit}>
+    </div>
+  {:else}
+    <form on:submit={handleOnSubmit} in:fade out:fade={{ duration: 0 }}>
+      <div class="field is-grouped is-grouped-centered">
         <div class="field has-addons">
           <p class="control">
             <span class="button is-static">{verify.question} =</span>
@@ -246,8 +252,8 @@
             </button>
           </p>
         </div>
-      </form>
-    {/if}
+      </div>
+    </form>
+  {/if}
 
-  </div>
 </TileBox>
