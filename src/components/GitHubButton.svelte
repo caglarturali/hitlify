@@ -7,6 +7,8 @@
 
   let stars = 0;
   let storageKey = `${user}-${repo}-json`;
+  let lastCheckKey = "last_check";
+  let expireIn = 5 * 60 * 1000;
 
   onMount(async () => {
     if (!fetchLocalStorage()) {
@@ -16,8 +18,14 @@
 
   const fetchLocalStorage = () => {
     if (window.localStorage && localStorage.getItem(storageKey)) {
-      const jsonRecord = JSON.parse(localStorage.getItem(storageKey));
-      stars = jsonRecord.stargazers_count;
+      const json = JSON.parse(localStorage.getItem(storageKey));
+
+      const lastCheck = json[lastCheckKey];
+      if (Math.floor(Date.now() - lastCheck) >= expireIn) {
+        return false;
+      }
+
+      stars = json.stargazers_count;
       return true;
     }
     return false;
@@ -30,6 +38,7 @@
     if (res.ok) {
       stars = json.stargazers_count;
       if (window.localStorage) {
+        json[lastCheckKey] = Date.now();
         localStorage.setItem(storageKey, JSON.stringify(json));
       }
     }
