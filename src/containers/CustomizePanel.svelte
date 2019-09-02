@@ -23,11 +23,13 @@
   import { randomNumber, randomColor } from "../lib/utils.js";
   import { API_BASE } from "../shared.js";
 
-  const handleRandomizeClick = () => {
-    width.set(randomNumber(600));
-    height.set(randomNumber(600));
-    fontSize.set(randomNumber(50));
-    maxLength.set(randomNumber(13));
+  const handleRandomizeAllClick = () => {
+    width.set(randomNumber(400, 96));
+    height.set(randomNumber($width / 2, 24));
+    const fontMax =
+      $height <= defaults.fontSize.max ? $height - 4 : defaults.fontSize.max;
+    fontSize.set(randomNumber(fontMax, 16));
+    maxLength.set(randomNumber(10, 3));
     backgroundColor.set(randomColor());
     fontColor.set(randomColor());
 
@@ -121,7 +123,7 @@
       <button
         class="button is-light has-icons has-icons-left"
         class:is-static={!$isAllowedToCreateNew || $isLoading}
-        on:click={() => handleRandomizeClick()}>
+        on:click={() => handleRandomizeAllClick()}>
         <span class="icon">
           <i class="fas fa-random" />
         </span>

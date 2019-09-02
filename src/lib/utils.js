@@ -1,4 +1,5 @@
-export const randomNumber = max => Math.floor(Math.random() * max) + 1;
+export const randomNumber = (max, min = 0) =>
+  Math.max(Math.floor(Math.random() * max) + 1, min);
 
 export const randomColor = () => {
   const tokens = '0123456789ABCDEF';
