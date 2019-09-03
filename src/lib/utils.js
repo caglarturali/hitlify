@@ -1,9 +1,11 @@
-export const randomNumber = (max, min = 0) =>
-  Math.max(Math.floor(Math.random() * max) + 1, min);
+export const randomNumber = (max, min = 0) => {
+  const random = Math.floor(Math.random() * max) + 1;
+  return Math.max(random, min);
+};
 
 export const randomColor = () => {
   const tokens = '0123456789ABCDEF';
-  let color = Array.from({ length: 6 }, () => {
+  const color = Array.from({ length: 6 }, () => {
     const randomToken = Math.floor(Math.random() * tokens.length);
     return tokens[randomToken];
   });
@@ -18,7 +20,7 @@ export const svgAsText = (
   backgroundColor,
   fontColor,
   fontFamily,
-  count
+  count,
 ) => `<svg
 xmlns="http://www.w3.org/2000/svg"
 xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -42,7 +44,8 @@ preserveAspectRatio="xMidYMid meet">
 </svg>`;
 
 export const humanVerification = (maxNum = 10) => {
-  let question, answer;
+  let question;
+  let answer;
 
   const operations = ['+', '-'];
   const selectedOp = operations[Math.floor(Math.random() * operations.length)];
@@ -60,6 +63,9 @@ export const humanVerification = (maxNum = 10) => {
       }
       question = `${number1} - ${number2}`;
       answer = number1 - number2;
+      break;
+    default:
+      break;
   }
 
   return { question, answer };

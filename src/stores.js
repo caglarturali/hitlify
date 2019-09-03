@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import { writable } from 'svelte/store';
 import defaults from './data/defaults.json';
 
@@ -12,7 +13,7 @@ export const fontFamily = writable(defaults.fontFamily.value);
 export const fonts = writable([
   'Arial, Helvetica, sans-serif',
   'Times New Roman, Times, serif',
-  'Courier New, Courier, monospace'
+  'Courier New, Courier, monospace',
 ]);
 export const count = writable(defaults.count.value);
 
