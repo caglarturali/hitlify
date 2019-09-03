@@ -1,5 +1,5 @@
 <script>
-  import HomeView from "./views/HomeView.svelte";
+  import HomeView from './views/HomeView.svelte';
 </script>
 
 <style>

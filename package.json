@@ -14,10 +14,14 @@
   "devDependencies": {
     "eslint": "^6.3.0",
     "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.1.0",
     "eslint-import-resolver-node": "^0.3.2",
     "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-svelte3": "^2.7.3",
     "npm-run-all": "^4.1.5",
+    "prettier": "^1.18.2",
+    "prettier-plugin-svelte": "^0.7.0",
     "rollup": "^1.12.0",
     "rollup-plugin-commonjs": "^10.0.0",
     "rollup-plugin-json": "^4.0.0",
@@ -37,6 +41,7 @@
     "dev": "run-p start:dev autobuild",
     "start": "sirv public --single",
     "start:dev": "sirv public --single --dev",
+    "prettier": "./node_modules/prettier/bin-prettier.js --write --plugin-search-dir=. src/**/*",
     "pretest": "eslint --ignore-path .gitignore .",
     "lint": "npm run pretest -- --fix"
   }

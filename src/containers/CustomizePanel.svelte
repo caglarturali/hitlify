@@ -1,5 +1,5 @@
 <script>
-  import { fade } from "svelte/transition";
+  import { fade } from 'svelte/transition';
   import {
     width,
     height,
@@ -12,21 +12,21 @@
     isLoading,
     isAllowedToCreateNew,
     showResultsPanel,
-    response
-  } from "../stores.js";
-  import defaults from "../data/defaults.json";
+    response,
+  } from '../stores.js';
+  import defaults from '../data/defaults.json';
 
-  import TileBox from "../components/TileBox.svelte";
-  import ColorPicker from "../components/ColorPicker.svelte";
-  import NumericInput from "../components/NumericInput.svelte";
-  import FontSelector from "../components/FontSelector.svelte";
+  import TileBox from '../components/TileBox.svelte';
+  import ColorPicker from '../components/ColorPicker.svelte';
+  import NumericInput from '../components/NumericInput.svelte';
+  import FontSelector from '../components/FontSelector.svelte';
 
   import {
     randomNumber,
     randomColor,
-    humanVerification
-  } from "../lib/utils.js";
-  import { API_BASE } from "../shared.js";
+    humanVerification,
+  } from '../lib/utils.js';
+  import { API_BASE } from '../shared.js';
 
   const handleRandomizeAllClick = () => {
     width.set(randomNumber(400, 96));
@@ -59,9 +59,9 @@
 
   let processInitiated = false;
   let verify = {
-    question: "",
+    question: '',
     answer: 0,
-    userInput: null
+    userInput: null,
   };
   const initiateProcess = () => {
     const { question, answer } = humanVerification();
@@ -72,9 +72,9 @@
 
   const clearProcess = () => {
     verify = {
-      question: "",
+      question: '',
       answer: 0,
-      userInput: null
+      userInput: null,
     };
     processInitiated = false;
   };
@@ -98,7 +98,7 @@
       const res = await fetch(
         `https://cors-anywhere.herokuapp.com/${API_BASE}/counters`,
         {
-          method: "post",
+          method: 'post',
           body: JSON.stringify({
             width: $width,
             height: $height,
@@ -106,11 +106,11 @@
             maxLength: $maxLength,
             backgroundColor: $backgroundColor,
             fontColor: $fontColor,
-            fontFamily: $fontFamily
+            fontFamily: $fontFamily,
           }),
           headers: {
-            "Content-Type": "application/json"
-          }
+            'Content-Type': 'application/json',
+          },
         }
       );
       const json = await res.json();
@@ -122,9 +122,9 @@
 
         // Scroll to bottom
         window.scrollTo({
-          behavior: "smooth",
+          behavior: 'smooth',
           top: document.body.scrollHeight,
-          left: 0
+          left: 0,
         });
       }
     } catch (error) {

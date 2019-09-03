@@ -1,8 +1,8 @@
 <script>
-  import GitHubButton from "../../components/GitHubButton.svelte";
+  import GitHubButton from '../../components/GitHubButton.svelte';
 
   let tweetUrl =
-    "https://twitter.com/intent/tweet?text=Hitlify: Create custom hit counters with ease!;hashtags=hitlify,javascript,svelte,nodejs,codinggarden&amp;url=https://hitlify.now.sh/&amp;via=coding_garden";
+    'https://twitter.com/intent/tweet?text=Hitlify: Create custom hit counters with ease!;hashtags=hitlify,javascript,svelte,nodejs,codinggarden&amp;url=https://hitlify.now.sh/&amp;via=coding_garden';
 
   let showMenu = false;
 </script>

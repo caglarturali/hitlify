@@ -1,6 +1,6 @@
 <script>
-  import { isLoading, isAllowedToCreateNew } from "../stores.js";
-  import { randomNumber } from "../lib/utils.js";
+  import { isLoading, isAllowedToCreateNew } from '../stores.js';
+  import { randomNumber } from '../lib/utils.js';
 
   export let label;
   export let min = 1;

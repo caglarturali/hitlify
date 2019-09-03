@@ -21,7 +21,7 @@ export default {
       dev: !production,
       // we'll extract any component CSS out into
       // a separate file — better for performance
-      css: (css) => {
+      css: css => {
         css.write('public/bundle.css');
       },
       // Warnings are normally passed straight to Rollup. You can
@@ -42,7 +42,8 @@ export default {
     // https://github.com/rollup/rollup-plugin-commonjs
     resolve({
       browser: true,
-      dedupe: (importee) => importee === 'svelte' || importee.startsWith('svelte/'),
+      dedupe: importee =>
+        importee === 'svelte' || importee.startsWith('svelte/'),
     }),
     commonjs(),
     json({

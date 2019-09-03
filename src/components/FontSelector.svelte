@@ -3,17 +3,17 @@
     fontFamily,
     fonts,
     isLoading,
-    isAllowedToCreateNew
-  } from "../stores.js";
+    isAllowedToCreateNew,
+  } from '../stores.js';
 
   export let label;
 
   let newFont;
   const addNewFontToList = () => {
-    if (!newFont || newFont == "") return;
+    if (!newFont || newFont == '') return;
     fonts.update(f => [...f, newFont]);
     fontFamily.set(newFont);
-    newFont = "";
+    newFont = '';
   };
 
   const selectRandomFont = () => {

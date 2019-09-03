@@ -1,13 +1,13 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount } from 'svelte';
 
   export let user, repo, title;
   let repoUrl = `https://github.com/${user}/${repo}`;
-  let reposApiBase = "https://api.github.com/repos";
+  let reposApiBase = 'https://api.github.com/repos';
 
   let stars = 0;
   let storageKey = `${user}-${repo}-json`;
-  let lastCheckKey = "last_check";
+  let lastCheckKey = 'last_check';
   let expireIn = 15 * 60 * 1000;
 
   onMount(async () => {

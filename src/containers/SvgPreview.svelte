@@ -1,5 +1,5 @@
 <script>
-  import FileSaver from "file-saver";
+  import FileSaver from 'file-saver';
 
   import {
     width,
@@ -9,11 +9,11 @@
     backgroundColor,
     fontColor,
     fontFamily,
-    count
-  } from "../stores.js";
+    count,
+  } from '../stores.js';
 
-  import TileBox from "../components/TileBox.svelte";
-  import { svgAsText } from "../lib/utils.js";
+  import TileBox from '../components/TileBox.svelte';
+  import { svgAsText } from '../lib/utils.js';
 
   $: svgString = svgAsText(
     $width,
@@ -27,8 +27,8 @@
   );
 
   function downloadSvg() {
-    var blob = new Blob([svgString], { type: "image/svg+xml;charset=utf-8" });
-    FileSaver.saveAs(blob, "counter.svg");
+    var blob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' });
+    FileSaver.saveAs(blob, 'counter.svg');
   }
 </script>
 

@@ -1,5 +1,5 @@
 <script>
-  export let type = "info";
+  export let type = 'info';
   let showNotification = true;
 </script>
 

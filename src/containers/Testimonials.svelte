@@ -1,5 +1,5 @@
 <script>
-  import dummy from "../data/dummy.json";
+  import dummy from '../data/dummy.json';
 
   let randomIndex = Math.floor(Math.random() * dummy.length);
   let randomTestimonial = dummy[randomIndex];
@@ -7,7 +7,7 @@
 
 <style>
   .testimonial {
-    font-family: "Lobster Two", cursive;
+    font-family: 'Lobster Two', cursive;
     font-size: 1.5rem;
     margin: 1rem;
   }

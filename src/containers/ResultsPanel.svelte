@@ -1,13 +1,13 @@
 <script>
-  import { fade, slide } from "svelte/transition";
-  import FileSaver from "file-saver";
+  import { fade, slide } from 'svelte/transition';
+  import FileSaver from 'file-saver';
 
   import {
     isAllowedToCreateNew,
     showResultsPanel,
-    response
-  } from "../stores.js";
-  import { API_BASE } from "../shared.js";
+    response,
+  } from '../stores.js';
+  import { API_BASE } from '../shared.js';
 
   $: embedUrl = `${API_BASE}/counters/${$response.guid}`;
   $: imgText = `<img src="${embedUrl}"/>`;
@@ -19,9 +19,9 @@
 
   const downloadJSON = () => {
     var blob = new Blob([responseString], {
-      type: "application/json;charset=utf-8"
+      type: 'application/json;charset=utf-8',
     });
-    FileSaver.saveAs(blob, "response.json");
+    FileSaver.saveAs(blob, 'response.json');
   };
 
   const createNew = () => {
@@ -31,7 +31,7 @@
   };
 
   const handleCreateNew = () => {
-    const isOk = confirm("Are you sure?");
+    const isOk = confirm('Are you sure?');
     if (isOk) {
       createNew();
     }
