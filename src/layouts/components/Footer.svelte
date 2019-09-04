@@ -19,7 +19,8 @@
   });
 
   const fetchSvg = async url => {
-    const res = await fetch(`https://cors-anywhere.herokuapp.com/${url}`);
+    // const res = await fetch(`https://cors-anywhere.herokuapp.com/${url}`);
+    const res = await fetch(url);
     let text = await res.text();
     return text.replace(currentBgColor, newBgColor);
   };
