@@ -26,10 +26,10 @@
     $count
   );
 
-  function downloadSvg() {
-    var blob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' });
+  const downloadSvg = () => {
+    let blob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' });
     FileSaver.saveAs(blob, 'counter.svg');
-  }
+  };
 </script>
 
 <style>

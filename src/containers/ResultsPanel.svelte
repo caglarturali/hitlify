@@ -18,7 +18,7 @@
   $: responseString = JSON.stringify($response, null, 2);
 
   const downloadJSON = () => {
-    var blob = new Blob([responseString], {
+    let blob = new Blob([responseString], {
       type: 'application/json;charset=utf-8',
     });
     FileSaver.saveAs(blob, 'response.json');
