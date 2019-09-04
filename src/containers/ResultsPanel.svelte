@@ -58,6 +58,7 @@
   pre,
   .code-view {
     border-radius: 4px;
+    color: #4a4a4a;
   }
 </style>
 

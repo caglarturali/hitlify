@@ -20,7 +20,7 @@
 </style>
 
 <nav
-  class="navbar has-shadow is-spaced"
+  class="navbar has-shadow is-spaced is-dark"
   role="navigation"
   aria-label="main navigation">
   <div class="container">
@@ -61,7 +61,7 @@
               class="navbar-item"
               href="https://coding.garden/"
               target="_blank">
-              <span class="icon has-text-primary">
+              <span class="icon has-text-success">
                 <i class="fas fa-bookmark" />
               </span>
               <span>Website</span>
